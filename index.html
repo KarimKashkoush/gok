@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kafo Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+
+    <!-- Start Style -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            direction: rtl;
+            font-family: "Open Sans", sans-serif;
+            color: #074767;
+        }
+
+        .container {
+            width: 85%;
+            padding-inline: 15px;
+            margin-inline: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th {
+            color: #fff;
+            background-color: #074767;
+        }
+
+        /* Start header */
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-block: 10px;
+            border-bottom: 3px solid #65636389;
+        }
+
+        .header .container h2 {
+            text-align: center;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            color: #074767;
+        }
+        
+        .header .container p {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #074767;
+        }
+
+        img {
+            width: 80px;
+        }
+
+        /* End header */
+
+        /* Start invoice number */
+        .invoice-number .container {
+            display: flex;
+            justify-content: space-between;
+            padding-block: 3px;
+            direction: ltr;
+        }
+
+        .invoice-number .container p {
+            font-weight: 600;
+        }
+
+        .invoice-number .container p:last-child {
+            color: #074767;
+        }
+
+        /* End invoice number */
+
+        /* Start Thanks */
+        .thanks {
+            margin-bottom: 3px;
+        }
+
+        .thanks .container {
+            border: 2px solid #074767;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .thanks .container section {
+            padding: 3px;
+            flex: 1;
+        }
+
+        .thanks .container section:first-child {
+            border-left: 2px solid #074767;
+        }
+
+        .thanks .container section p {
+            line-height: 1.4;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* End Thanks */
+
+        /* Start Buyer data */
+
+        .buyer table {
+            margin-block: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .buyer table tr {
+            width: 100%;
+            border-bottom: 1px solid #074767;
+        }
+
+        .buyer table tr td {
+            padding: 5px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* End Buyer data */
+
+        /* Start invoice-details */
+        .invoice-details {
+            margin-top: 10px;
+        }
+
+        .invoice-details .container h2 {
+            text-align: center;
+            margin-top: -5px;
+        }
+
+        .invoice-details .container table {
+            width: 100%;
+            text-align: center;
+        }
+
+        .invoice-details .container table tr {
+            border-bottom: 1px solid;
+            font-size: 16px;
+        }
+
+        .invoice-details .container table tr td,
+        .invoice-details .container table tr th {
+            padding: 5px;
+        }
+
+        /* End invoice-details */
+
+        /* Start details */
+        .details {
+            margin-block: 5px;
+        }
+        
+        .details .container {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .details .container p {
+            line-height: 1.6;
+            font-size: 16px;
+            color: #074767;
+            font-weight: 600;
+        }
+
+        .img-det {
+            position: absolute;
+            left: 0px;
+            top: 0;
+            transform: rotate(-45deg);
+        }
+
+        /* Start details */
+
+        /* Start Tables */
+        .tables .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tables .container table {
+            width: 180px;
+            text-align: center;
+            margin: 5px;
+            border: 1px solid #000;
+        }
+
+        .tables .container table tr {
+            border-bottom: 1px solid #000;
+        }
+
+        .tables .container table:last-child {
+            width: 100%;
+        }
+
+        /* End Tables */
+
+        /* Start Footer */
+        footer .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border-bottom: 5px solid #00000091;
+            padding: 5px;
+        }
+
+        footer .container p {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* End Footer */
+
+        th {
+            background-color: #074767;
+            color: #fff;
+            padding: 2px;
+        }
+
+        td {
+            padding: 2px;
+        }
+
+        @media print {
+            th {
+                color: white;
+                background-color: #074767 !important;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+    <!-- End Style -->
+</head>
+
+<body>
+
+    <!-- Start Header -->
+    <header class="header">
+
+        <section class="container">
+
+            <sectionn class="name-en">
+                <h2>kafo store</h2>
+                <p>The first store in the <br> Kingdom of Saudia Arabia</p>
+            </sectionn>
+
+            <section class="logo">
+                <img src="https://scontent.fcai2-1.fna.fbcdn.net/v/t39.30808-6/302137920_514041534057815_4630359113642186654_n.png?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=jbaZhFzdHCwQ7kNvgFPF54e&_nc_ht=scontent.fcai2-1.fna&oh=00_AfCnTzuzgrob8nf62_qlxaN730bOdiczofouuiG5YHmy8g&oe=66397817" alt="img">
+            </section>
+
+            <section class="name-ar">
+                <h2>كفو السعوية</h2>
+                <p>المتجر الأول في <br> المملكة العربية السعودية</p>
+            </section>
+
+        </section>
+
+    </header>
+    <!-- End Header -->
+
+    <!-- Start Invoice Number -->
+    <section class="invoice-number">
+
+        <section class="container">
+
+            <!-- Date -->
+            <p>18/04/2024</p>
+
+            <!-- Number -->
+            <p>No. #<span>771086173</span></p>
+
+        </section>
+
+    </section>
+    <!-- End Invoice Number -->
+
+    <!-- Start Thanks For Buy -->
+    <section class="thanks">
+
+        <section class="container">
+            <section class="en" dir="ltr">
+                <p>Dear Customer,</p>
+                <p>Thank you for shopping with kafo store</p>
+                <p>Yout order has been placed</p>
+                <p>Below is the sumary of the order</p>
+            </section>
+            <section class="ar">
+                <p>عميلنا العزيز،</p>
+                <p>شكرا لتسوقكم من كفو ستور</p>
+                <p>لقد تم انشاء طلبكم بنجاح</p>
+                <p>فيما يلي ملخص الطلب</p>
+            </section>
+        </section>
+
+    </section>
+    <!-- End Thanks For Buy -->
+
+    <!-- Start Buyer data -->
+    <section class="buyer">
+
+        <section class="container">
+            <table>
+                <tr>
+                    <th>اسم العميل</th>
+                    <th>رقم الجوال</th>
+                    <th>العنوان</th>
+                </tr>
+                <tr>
+                    <td>عبدالملك القحطاني</td>
+                    <td>0555150963</td>
+                    <td>العمدة</td>
+                </tr>
+            </table>
+        </section>
+
+    </section>
+    <!-- End Buyer data -->
+
+    <!-- Start Invoice details -->
+    <section class="invoice-details">
+
+        <section class="container">
+            <h2>تفاصيل الفاتورة</h2>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>اسم الجهاز</th>
+                    <th>السعر</th>
+                    <th>الكمية</th>
+                    <th>الاجمالي</th>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>أبل أيفون 15 برو ماكس 256 جيجا بايت</td>
+                    <td>5299.00</td>
+                    <td>1</td>
+                    <td>5299</td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" style="text-align: start;">الجمالي</td>
+                    <td>5299 رس</td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" style="text-align: start;">الدفعة المقدمة</td>
+                    <td>999 رس</td>
+                </tr>
+            </table>
+        </section>
+
+    </section>
+    <!-- Start Invoice details -->
+
+    <!-- Start details -->
+    <section class="details">
+        <section class="container">
+            <p>سيتم اعتماد الطلب وشحنه بعد تسديد المبلغ المطلوب</p>
+            <p>التوصيل مجانا من خلال شركة ارامكس، خلال 24 ساعة من دفع الدفعة المقدمة</p>
+            <p>العرض شامل الهدايا</p>
+            <img src="https://scontent.fcai2-1.fna.fbcdn.net/v/t39.30808-6/302137920_514041534057815_4630359113642186654_n.png?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=jbaZhFzdHCwQ7kNvgFPF54e&_nc_ht=scontent.fcai2-1.fna&oh=00_AfCnTzuzgrob8nf62_qlxaN730bOdiczofouuiG5YHmy8g&oe=66397817" alt="img" class="img-det">
+        </section>
+    </section>
+    <!-- End details -->
+
+    <!-- Start table -->
+    <section class="tables">
+
+        <section class="container">
+
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>الدفعة</th>
+                    <th>تاريخ الاستحقاق</th>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>الدفعة</th>
+                    <th>تاريخ الاستحقاق</th>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>الدفعة</th>
+                    <th>تاريخ الاستحقاق</th>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>الدفعة</th>
+                    <th>تاريخ الاستحقاق</th>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>الدفعة</th>
+                    <th>تاريخ الاستحقاق</th>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>179</td>
+                    <td>15/05/2024</td>
+                </tr>
+
+            </table>
+
+            <table>
+                <tr>
+                    <th>المتبقي</th>
+                    <td>4300.00 رس</td>
+                </tr>
+            </table>
+
+        </section>
+
+
+    </section>
+    <!-- End table -->
+
+    <!-- Start Footer -->
+    <footer>
+        <section class="container">
+            <p>كفو ستور</p>
+            <p>www.kafoos.com</p>
+        </section>
+    </footer>
+    <!-- End Footer -->
+</body>
+
+</html>
